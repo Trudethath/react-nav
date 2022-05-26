@@ -1,38 +1,206 @@
-.App {
-  text-align: center;
+* {
+  font-family: 'Montserrat', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  box-sizing: border-box;
+  font-size: 16px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.navbarItems {
+  color: white;
+  background: rgb(63, 92, 240);
+  background: radial-gradient(
+    circle,
+    rgba(63, 92, 240, 1) 0%,
+    rgba(149, 70, 252, 1) 100%
+  );
+  height: 100px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 1.2rem;
+}
+
+.right {
+  display: flex;
+  max-width: 800px;
+  margin-right: 2rem;
+  text-align: left;
+}
+
+.menu {
+  display: flex;
+  transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -webkit-transition: all 0.25s ease;
+}
+
+.activeElement {
+  font-size: 1.2em;
+  border-bottom: 1px solid white;
+}
+
+.navbarLogo {
+  max-width: 200px;
+  font-size: 2rem;
+  margin: 0 55px;
+}
+
+.navbarLogo i {
+  font-size: 30px;
+  margin-left: 6px;
+}
+
+input {
+  display: block;
+  width: 130px;
+  border: 0;
+  outline: 0;
+  color: white;
+  padding: 7px 0px;
+  margin-right: 20px;
+  background: transparent;
+  border-bottom: 2px solid rgb(57, 26, 97);
+  transition: 0.2s ease;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+input:focus {
+  font-weight: bold;
+  width: 160px;
+  border-bottom: 2px solid rgb(193, 203, 255);
+  background-color: rgba(71, 34, 122, 0.082);
+  border-radius: 3px;
+  padding: 7px 3px;
+}
+
+input:focus::placeholder {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+li {
+  margin-left: 12px;
+  display: inline-block;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.nav-links,
+li .nav-links:visited {
+  color: white;
+  text-decoration: none;
+}
+
+li .nav-links {
+  text-align: center;
+  line-height: 30px;
+  display: inline-block;
+  height: 30px;
+  width: 100px;
+  transition: all 0.2s ease;
+}
+
+li .nav-links:hover {
+  background-color: rgba(71, 34, 122, 0.247);
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.hamburger {
+  font-size: 30px;
+  margin: 0 10px 0 25px;
+  padding: 6px;
+  text-align: center;
+  line-height: 20px;
+  cursor: pointer;
+  display: none;
+}
+
+@media screen and (max-width: 860px) {
+  .navbarItems {
+    position: relative;
   }
-  to {
-    transform: rotate(360deg);
+  .activeElement {
+    font-size: 1.2em;
+    border: none;
+    background-color: rgba(71, 34, 122, 0.247);
+
+    text-transform: uppercase;
+  }
+
+  .menu {
+    position: absolute;
+    flex-direction: column;
+    top: 100px;
+    left: -100%;
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(
+      rgba(63, 92, 240, 1) 0%,
+      rgba(149, 70, 252, 1) 100%
+    );
+  }
+
+  li {
+    margin: 0;
+    padding: 0;
+  }
+
+  li .nav-links {
+    height: 60px;
+    width: 100%;
+    line-height: 60px;
+  }
+
+  .menu.active {
+    left: 0;
+  }
+
+  input {
+    width: 140px;
+    margin-right: 0px;
+  }
+
+  .hamburger {
+    display: inline-block;
+  }
+
+  .hamburger:hover {
+    background-color: rgba(71, 34, 122, 0.247);
+    border-radius: 3px;
   }
 }
